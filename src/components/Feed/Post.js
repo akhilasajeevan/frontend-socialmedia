@@ -14,7 +14,6 @@ const Post = ({ post, onPostDeleted }) => {
   const hasLiked = likes.includes(userId);
 
 
-  console.log(hasLiked);
   
 
   const handleLike = async () => {
@@ -59,9 +58,9 @@ const Post = ({ post, onPostDeleted }) => {
   return (
     <div className="post">
       <div className="post-header">
-        <img src={post.user.profilePicture} alt={post.user.name} className="profile-pic" />
+        <img src={post.user.avatar} alt={post.user.username} className="profile-pic" />
         <div>
-          <h4>{post.user.name}</h4>
+          <h4>{post.user?.username}</h4>
           <p>{new Date(post.createdAt).toLocaleString()}</p>
         </div>
       </div>

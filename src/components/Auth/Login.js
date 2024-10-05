@@ -1,13 +1,18 @@
+
+
+
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { loginAPI } from "../../services/api"; // Import the API service
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons"; // Import the user icon
 import { AuthContext } from "../../context/AuthContext";
+import "./Login.css"; // Importing CSS for styling
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   const { login } = useContext(AuthContext);
 
@@ -15,11 +20,8 @@ const Login = () => {
     login(email, password);
     e.preventDefault();
     try {
-      // const response = await loginAPI(email, password); // Call login API
-      // localStorage.setItem('token', response.token); // Store the token
-      // localStorage.setItem('userId', response.userId); // Store the user ID
-      setMessage("Login successful!"); // Handle successful login
-      navigate("/"); // Redirect to the feed page
+      setMessage("Login successful!");
+      navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
       setMessage("Login failed. Please check your credentials.");
@@ -27,26 +29,34 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      {message && <p>{message}</p>} {/* Show error/success message */}
+    <div className="login-container">
+      <div className="login-box">
+        <div className="login-icon">
+          {/* Font Awesome User Icon */}
+          <FontAwesomeIcon icon={faUser} size="3x" />
+        </div>
+        <h2>Login</h2>
+        <form onSubmit={handleLogin} className="login-form">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            required
+            className="login-input"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+            className="login-input"
+          />
+          <button type="submit" className="login-button">Continue</button>
+        </form>
+        {message && <p className="login-message">{message}</p>}
+      </div>
     </div>
   );
 };

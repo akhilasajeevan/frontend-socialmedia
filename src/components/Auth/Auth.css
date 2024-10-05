@@ -1,4 +1,4 @@
-.auth-container {
+/* .auth-container {
     width: 100%;
     max-width: 400px;
     margin: 50px auto;
@@ -36,4 +36,71 @@
 
 .auth-container button:hover {
     background-color: #0056b3;
-}
+} */
+
+
+/* Container and Box Styling */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #b4c6da; /* Blue background */
+  }
+  
+  .auth-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Profile Icon */
+  .auth-icon img {
+    width: 60px; /* Set the size of the registration icon */
+    margin-bottom: 20px;
+  }
+  
+  /* Form Styling */
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-input {
+    margin-bottom: 20px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+  }
+  
+  .auth-input:focus {
+    border-color: #007bff;
+  }
+  
+  .auth-button {
+    background-color: #00aaff;
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-button:hover {
+    background-color: #007bff;
+  }
+  
+  /* Error/Success Message */
+  .auth-message {
+    margin-top: 10px;
+    color: #ff4d4d;
+    font-size: 14px;
+  }
+  
